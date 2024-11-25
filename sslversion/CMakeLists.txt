@@ -1,0 +1,11 @@
+add_executable(sslversion sslversion.c)
+
+find_package(OpenSSL REQUIRED)
+if (NOT OPENSSL_FOUND)
+    message(FATAL_ERROR "OpenSSL not found")
+endif()
+target_include_directories(sslversion PRIVATE ${OPENSSL_INCLUDE_DIR})
+message(STATUS "OpenSSL include directory: ${OPENSSL_INCLUDE_DIR}")
+target_link_libraries(sslversion PRIVATE ${OPENSSL_LIBRARIES})
+link_directories(${OPENSSL_LIBRARIES})
+message(STATUS "OpenSSL libraries: ${OPENSSL_LIBRARIES}")
