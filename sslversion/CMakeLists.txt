@@ -9,7 +9,7 @@ target_include_directories(sslversion PRIVATE ${OPENSSL_INCLUDE_DIR})
 message(STATUS "OpenSSL include directory: ${OPENSSL_INCLUDE_DIR}")
 
 if (WIN32)
-    target_link_libraries(sslversion PRIVATE ${OPENSSL_LIBRARIES} w2_32)
+    target_link_libraries(sslversion PRIVATE ${OPENSSL_LIBRARIES} ws2_32)
     message(STATUS "OpenSSL libraries: ${OPENSSL_LIBRARIES}")
 else()
     target_link_libraries(sslversion PRIVATE ${OPENSSL_LIBRARIES})
